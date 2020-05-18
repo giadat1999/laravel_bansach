@@ -8,70 +8,70 @@
 @section('main-content')
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$orders}}</h3>
 
-                <p>Orders</p>
+                <p>Hóa đơn</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="admin/bill/list" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>{{$customers}}</h3>
 
-                <p>Customers</p>
+                <p>Khách hàng</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>{{$products}}</h3>
+                <h3>{{$sach}}</h3>
 
-                <p>Products</p>
+                <p>Sách</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa fa-book" aria-hidden="true"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="admin/sach/list" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>${{number_format($total)}}</h3>
+                <h3>{{number_format($total)}} VNĐ</h3>
 
-                <p>Total</p>
+                <p>Tổng cộng</p>
             </div>
             <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-money-bill    "></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
 </div>
 <!-- /.row -->
 <!-- Main row -->
-<div class="row">
+{{-- <div class="row">
     <!-- Left col -->
     <section class="col-lg-7 connectedSortable">
         <!-- Custom tabs (Charts with tabs)-->
@@ -587,6 +587,6 @@
         <!-- /.card -->
     </section>
     <!-- right col -->
-</div>
+</div> --}}
 <!-- /.row (main row) -->
 @endsection

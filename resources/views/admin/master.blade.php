@@ -52,13 +52,13 @@
            <div class="dropdown open">
                <button class="btn btn-outline-dark btn-sm dropdown-toggle text-left" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                          <img width="45px" class="rounded-circle" src="upload/5.png" alt=""> Trương Gia Đạt
+                          <i class="fa fa-user" aria-hidden="true"></i> @if(Auth::check()) {{Auth::user()->name}} @endif
                        </button>
                <div class="dropdown-menu" aria-labelledby="triggerId">
-                   <a class="dropdown-item" href="#">Cài đặt</a>
-                   <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                   <a class="dropdown-item" href="admin/setting/@if(Auth::check()) {{Auth::user()->id}} @endif">Thông tin</a>
+                   <a class="dropdown-item" href="admin/change/@if(Auth::check()) {{Auth::user()->id}} @endif">Đổi mật khẩu</a>
                    <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="#">Đăng xuất <i class="fa fa-sign-out-alt" aria-hidden="true"></i></a>
+                   <a class="dropdown-item" href="logout">Đăng xuất <i class="fa fa-sign-out-alt" aria-hidden="true"></i></a>
                </div>
            </div>
             <li class="nav-item">
@@ -73,7 +73,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="/admin" class="brand-link text-center">
+        <a href="admin/dashboard" class="brand-link text-center">
+            <i class="fas fa-home"></i>
             <span class="brand-text font-weight-light">Quản lý sách</span>
         </a>
 
@@ -136,7 +137,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon far fa-copy"></i>
                             <p>
-                                Hóa đơn
+                                Đơn hàng
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>

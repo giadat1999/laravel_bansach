@@ -5,58 +5,53 @@
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endsection
 @section('header')
-    Danh sách hóa đơn
+    Danh sách các đơn hàng
 @endsection
 @section('breadcrumb')
-    <li class="breadcrumb-item active">Hóa đơn</li>
+    <li class="breadcrumb-item active">Đơn hàng</li>
 @endsection
 @section('main-content')
     {{--    Bang liet ke cac san pham--}}
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Tất cả hóa đơn</h3>
+            <h3 class="card-title">Tất cả các đơn hàng</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <div class="row">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div>
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Khách hàng</th>
-                    <th>Ngày đặt</th>
-                    <th>Tổng cộng</th>
-                    <th>Thanh toán</th>
-                    <th>Ghi chú</th>
-                    <th>Tình trạng</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($bills as $bills)
+                @foreach($customer as $customer)
                     <tr>
-                        <td>{{$bills->bill->name}}</td>
-                        <td>{{$bills->date_order}}</td>
-                        <td>{{number_format($bills->total)}}</td>
-                        <td>{{$bills->payment}}</td>
-                        <td>{{$bills->note}}</td>
+                        <td>{{$customer->id}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->address}}</td>
+                        <td>{{$customer->created_at}}</td>
+                        <td>{{$customer->email}}</td>
                         <td>
-                            @if($bills->tinhtrang == '0')
-                              {{'Hủy'}}
-                            @else @if($bills->tinhtrang == '1')
-                              {{'Đang giao'}}
-                            @else @if($bills->tinhtrang == '2')
-                              {{'Đang chờ lấy hàng'}}
-                              @else @if($bills->tinhtrang == '3')
-                              {{'Đã giao'}}
-                            @endif
+                            @if($customer->bill_status == '1')
+                               {{'Chưa giao'}}
+                               @else @if($customer->bill_status == '2')
+                               {{'Đang giao'}}
+                               @else @if($customer->bill_status == '3')
+                               {{'Đã giao'}}
                             @endif
                             @endif
                             @endif
                         </td>
                         <td>
-                            <a href="admin/bill/edit/{{$bills->id}}" class="btn btn-primary">Sửa</a>
-                            <a href="admin/bill/detail/{{$bills->id}}" class="btn btn-info">Chi tiết</a>
-                            <a href="admin/bill/delete/{{$bills->id}}" class="btn btn-danger">Xóa</a>
+                            <a href="admin/bill/detail/{{$customer->id}}" class="btn btn-info">Chi tiết</a>
+                            <a href="admin/bill/delete/{{$customer->id}}" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                 @endforeach

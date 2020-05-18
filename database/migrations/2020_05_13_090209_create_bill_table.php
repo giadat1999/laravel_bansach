@@ -16,11 +16,10 @@ class CreateBillTable extends Migration
         Schema::create('bill', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_customer');
-            $table->date('date_order');
             $table->double('total');
             $table->string('payment',200);
             $table->string('note',500);
-            $table->string('tinhtrang');
+            $table->string('status');
             $table->timestamps();
         });
     }

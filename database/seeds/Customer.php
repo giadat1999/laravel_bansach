@@ -13,8 +13,8 @@ class Customer extends Seeder
     {
         DB::table('customer')->insert(
             [
-            ['name'=>'Trần Huy Kiệt', 'gender'=>'Nam','email'=>'tranhuykiet@gmail.com','address'=>'Quận 8','phone_number'=>'123456789','note'=>'abc'],
-            ['name'=>'Trương Diệp Lệ', 'gender'=>'Nữ','email'=>'truongdieple@gmail.com','address'=>'Quận 6','phone_number'=>'36978542','note'=>'bcd'],
+            ['name'=>'Trần Huy Kiệt', 'gender'=>'Nam','email'=>'tranhuykiet@gmail.com','address'=>'Quận 8','phone_number'=>'123456789'],
+            ['name'=>'Trương Diệp Lệ', 'gender'=>'Nữ','email'=>'truongdieple@gmail.com','address'=>'Quận 6','phone_number'=>'36978542']
             ]
         );
     }
