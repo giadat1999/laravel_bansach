@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="/sources/css/styles.css"> 
+    @yield('css')
     <base href="{{asset('')}}">
 </head>
 
@@ -37,6 +38,8 @@
     <script src="/sources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/sources/js/owl.carousel.min.js"></script>
     <script src="/sources/js/custom.js"></script>
+    <script src="/owlcarousel/owl.carousel.min.js"></script>
+    @yield('scripts')
 </body>
 
 </html>

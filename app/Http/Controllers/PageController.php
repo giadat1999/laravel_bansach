@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sach;
+use App\LoaiSach;
 class PageController extends Controller
 {
     public function getIndex()
@@ -17,17 +18,35 @@ class PageController extends Controller
 
     public function getList()
     {
-        $sach = Sach::all();
-        $sachngoaingu = Sach::where('id_type',3)->get();
-        return view('pages.sanpham',['sach'=>$sach, 'sachnn'=>$sachngoaingu]);
+        $sachmoi = Sach::where('spmoi','1')->get();
+        $allsach = Sach::orderBy('id','desc')->paginate(10); 
+        $loaisach = LoaiSach::all();
+        return view('pages.sanpham',['allsach'=>$allsach, 'sachmoi'=>$sachmoi,'loaisach'=>$loaisach]);
     }
-    public function getDetail()
+    public function getSingup()
     {
-        return view('pages.chitiet_sanpham');
+        return view('pages.signup');
     }
-    public function getSingin()
+
+    public function getLoaiSach($id)
     {
-        return view('pages.signin');
+        $loaisach = LoaiSach::find($id);
+        $sach = Sach::where('id_type',$id)->get(); 
+        return view('pages.loaisach',['sach'=>$sach,'loaisach'=>$loaisach]);
+    }
+
+    public function getDetail($id)
+    {
+        $chitiet = Sach::find($id);
+        $gia = $chitiet->unit_price;
+        $km = $chitiet->promotion_price;
+        $tietkiem = (int)$gia-(int)$km;
+        $splq = Sach::where('id_type',$chitiet->id_type)->get();
+        return view('pages.chitiet_sanpham',['chitiet'=>$chitiet,'tietkiem'=>$tietkiem,'splq'=>$splq]);
+    }
+    public function getCart()
+    {
+        return view('pages.giohang');
     }
 
 }

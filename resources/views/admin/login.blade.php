@@ -68,13 +68,13 @@
                         <div class="modal-body">
                             <form action="login" method="post">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <div class="form-group text-center">
-                                  <label class="text-center" for="">Email</label>
-                                  <input type="email" class="form-control" name="email" aria-describedby="emailHelpId" placeholder="Nhập địa chỉ email">
+                                <div class="form-group text-center row">
+                                  <label class="text-center col-sm-3 col-form-label" for="">Email: </label>
+                                  <input type="email" class="form-control col-sm-9" name="email" aria-describedby="emailHelpId" placeholder="Nhập địa chỉ email">
                                 </div>
-                                <div class="form-group text-center">
-                                  <label class="text-center" for="">Mật khẩu</label>
-                                  <input type="password" class="form-control jus" name="password" placeholder="Nhập mật khẩu">
+                                <div class="form-group text-center row">
+                                  <label class="text-center col-sm-3 col-form-label" for="">Mật khẩu: </label>
+                                  <input type="password" class="form-control col-sm-9" name="password" placeholder="Nhập mật khẩu">
                                 </div>
                                 <div class="col text-center">
                                     <button type="submit" class="btn btn-primary mt-auto">Đăng nhập</button>

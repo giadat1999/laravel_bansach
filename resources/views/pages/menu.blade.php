@@ -8,22 +8,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="navbar-item">
-                        <a href="index.html" class="nav-link">Trang chủ</a>
-                    </li>
-                    <li class="navbar-item active">
-                        <a href="shop.html" class="nav-link">Shop</a>
+                        <a style="color:black; href="index.html" class="nav-link"><b>Trang chủ</b></a>
                     </li>
                     <li class="navbar-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a style="color:black; href="about.html" class="nav-link"><b>About</b></a>
                     </li> 
                     <li class="navbar-item">
-                        <a href="login.html" class="nav-link">Login</a>
+                        <a style="color:black; href="login.html" class="nav-link"><b>Đăng nhập</b></a>
                     </li>
                 </ul>
                 <div class="cart my-2 my-lg-0">
-                    <span>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                    <span class="quntity">3</span>
+                   <a style="color:black; text-decoration:none; font-size:20px;" href="giohang"><span>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="quntity">3</span></a>
                 </div>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">

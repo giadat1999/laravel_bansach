@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Middleware\onlyAdminLogin;
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('login','adminLoginController@getLogin');
 Route::post('login','adminLoginController@postLogin');
 Route::get('logout','adminLoginController@getLogout');
@@ -60,8 +56,9 @@ Route::group(['prefix'=>'admin','middleware' => 'adminaccessLogin'],function()
     });
 });
 
-Route::get('trangchu','PageController@getIndex');
 Route::get('dangnhap','PageController@getLogin');
-Route::get('sanpham','PageController@getList');
-Route::get('chitietsanpham','PageController@getDetail');
-Route::get('dangky','PageController@getSingin');
+Route::get('/','PageController@getList');
+Route::get('chitietsanpham/{id}','PageController@getDetail');
+Route::get('dangky','PageController@getSingup');
+Route::get('loaisach/{id}','PageController@getLoaiSach');
+Route::get('giohang','PageController@getCart');
