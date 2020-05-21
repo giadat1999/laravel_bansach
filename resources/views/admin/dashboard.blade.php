@@ -42,7 +42,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>{{$sach}}</h3>
+                <h3>{{$tongsach}}</h3>
 
                 <p>Sách</p>
             </div>

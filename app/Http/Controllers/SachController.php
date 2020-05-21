@@ -33,16 +33,16 @@ class SachController extends Controller
             $file = $request->file('hinh');
             $filename = $file->getClientOriginalName();
             $duoi = $file->getClientOriginalExtension();
-            if($duoi == 'jpg' || $duoi == 'png')
+            if($duoi == 'jpg' || $duoi == 'png' || $duoi == 'jpeg')
             {
                 $file->move('upload/sach',$filename);
             }else
             {
-                return redirect('admin/sach/add')->with('thongbao','Bạn chỉ được tải lên file ảnh');
+                return redirect('admin/sach/add')->with('error','Bạn chỉ được tải lên file ảnh');
             }
         }else
         {
-            return redirect('admin/sach/add')->with('thongbao','Bạn chưa thêm file ảnh');
+            return redirect('admin/sach/add')->with('error','Bạn chưa thêm file ảnh');
         }
         $sach->image = $filename;
         $sach->save();

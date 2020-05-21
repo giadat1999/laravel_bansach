@@ -17,11 +17,6 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="card-body">
                         <div class="container">   
-                            @if(session('thongbao'))
-                                <div class="alert alert-default-success">
-                                   {{session('thongbao')}}
-                                </div>
-                            @endif
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>

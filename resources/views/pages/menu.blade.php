@@ -8,23 +8,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="navbar-item">
-                        <a style="color:black; href="index.html" class="nav-link"><b>Trang chủ</b></a>
+                        <a style="color:black;" href="/" class="nav-link"><b>Trang chủ</b></a>
                     </li>
                     <li class="navbar-item">
-                        <a style="color:black; href="about.html" class="nav-link"><b>About</b></a>
-                    </li> 
-                    <li class="navbar-item">
-                        <a style="color:black; href="login.html" class="nav-link"><b>Đăng nhập</b></a>
+                        @if(Auth::check())
+                        <div class="dropdown">
+                            <a type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              {{Auth::user()->name}}
+                            </a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="thongtin/{{Auth::user()->id}}">Thông tin</a>
+                              <a class="dropdown-item" href="doimatkhau">Đổi mật khẩu</a>
+                              <a class="dropdown-item" href="dangxuat">Đăng xuất <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            </div>
+                          </div>
+                        @else
+                        <a style="color:black;" href="dangnhap" class="nav-link"><b>Đăng nhập</b></a>
+                        @endif
                     </li>
                 </ul>
                 <div class="cart my-2 my-lg-0">
-                   <a style="color:black; text-decoration:none; font-size:20px;" href="giohang"><span>
+                   <a style="color:black; text-decoration:none; font-size:25px;" href="giohang"><span>
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                <span class="quntity">3</span></a>
+                @if(Session::has('cart'))<span class="quntity">{{Session('cart')->totalQty}}</span> @endif</a>
                 </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
-                    <span class="fa fa-search"></span>
+                <form class="form-inline my-2 my-lg-0" method="get" action="timkiem">
+                    <input class="form-control mr-sm-2" name="key" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                    <button type="submit" class="btn btn-secondary"><span class="fa fa-search"></span></button>
                 </form>
             </div>
         </nav>

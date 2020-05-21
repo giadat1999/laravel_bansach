@@ -27,7 +27,7 @@ class BillController extends Controller
     {
         $bills = Bill::find($id);
         $bills->delete();
-        return redirect('admin/bill/list');
+        return redirect('admin/bill/list')->with('thongbao','Xóa đơn hàng thành công');
     }
 
     public function getDetail($id)
@@ -42,7 +42,7 @@ class BillController extends Controller
                        ->join('billsdetail','bill.id','=','billsdetail.id_bill')
                        ->leftjoin('sach','billsdetail.id_product','=','sach.id')
                        ->where('bill.id_customer','=',$id)
-                       ->select('bill.*','billsdetail.*','sach.name as tensach','sach.unit_price as gia')
+                       ->select('bill.*','billsdetail.*','sach.name as tensach','sach.unit_price as gia','sach.promotion_price as km')
                        ->get();
        return view('admin.bill_detail',compact('customerInfo','billInfo'));
     }

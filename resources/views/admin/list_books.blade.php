@@ -23,6 +23,11 @@
                     {{session('thongbao')}}
                 </div>
         @endif
+        @if(session('error'))
+                <div class="alert alert-default-success">
+                    {{session('error')}}
+                </div>
+        @endif
         <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>

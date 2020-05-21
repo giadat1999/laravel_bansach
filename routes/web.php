@@ -57,8 +57,19 @@ Route::group(['prefix'=>'admin','middleware' => 'adminaccessLogin'],function()
 });
 
 Route::get('dangnhap','PageController@getLogin');
+Route::post('dangnhap','PageController@postLogin');
 Route::get('/','PageController@getList');
 Route::get('chitietsanpham/{id}','PageController@getDetail');
-Route::get('dangky','PageController@getSingup');
 Route::get('loaisach/{id}','PageController@getLoaiSach');
 Route::get('giohang','PageController@getCart');
+Route::get('themgiohang/{id}','PageController@getAddtoCart');
+Route::get('xoagiohang/{id}','PageController@getDeleteItemsCart');
+Route::post('dat-hang','PageController@postCheckout');
+Route::get('dangky','PageController@getSignup');
+Route::post('dangky','PageController@postSignup');
+Route::get('dangxuat','PageController@getLogout');
+Route::get('doimatkhau','PageController@getChangePass');
+Route::post('doimatkhau/{id}','PageController@postChangePass');
+Route::get('thongtin/{id}','PageController@getThongTin');
+Route::get('timkiem','PageController@getSearch');
+Route::get('giamgiohang/{id}','PageController@getReduce');

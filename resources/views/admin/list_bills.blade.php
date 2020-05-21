@@ -18,6 +18,11 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+            @if(session('thongbao'))
+            <div class="alert alert-default-success">
+                {{session('thongbao')}}
+            </div>
+           @endif
             <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>

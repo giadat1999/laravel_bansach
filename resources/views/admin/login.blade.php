@@ -51,7 +51,7 @@
             @if($errors->count()>0)
             <div class="alert alert-default-danger m-5 text-center">
                 @foreach($errors->all() as $err)
-                <li>{{$err}}</li>
+                {{$err}} <br>
                 @endforeach
              </div>
             @endif

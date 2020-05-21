@@ -73,7 +73,7 @@
                                    <td>{{$key+1}}</td>
                                    <td>{{$bill->tensach}}</td>
                                    <td>{{$bill->quantity}}</td>
-                                   <td>{{number_format($bill->gia)}} VNĐ</td>
+                                   <td> @if($bill->km == 0) {{number_format($bill->gia)}} @else {{number_format($bill->km)}} @endif đ</td>
                                 </tr>
                                 @endforeach
                                 <tr>

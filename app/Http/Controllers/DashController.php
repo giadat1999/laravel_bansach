@@ -13,12 +13,12 @@ class DashController extends Controller
         $bills = Bill::all();
         $orders = $bills->count();
         $customers = Customer::all()->count();
-        $sach = Sach::all()->count();
+        $tongsach = Sach::all()->count();
         $total = 0;
         foreach($bills as $bill)
         {
             $total+= $bill->total;
         }
-        return view('admin.dashboard',compact('orders','customers','sach','total'));
+        return view('admin.dashboard',compact('orders','customers','tongsach','total'));
     }
 }
