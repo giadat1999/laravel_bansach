@@ -65,6 +65,7 @@ class adminLoginController extends Controller
        return redirect('admin/change/'.$id)->with('thongbao','Đổi mật khẩu thành công');
     }
 
+
     public function getSetting($id)
     {
         $user = User::find($id);

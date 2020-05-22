@@ -9,8 +9,8 @@ class SachController extends Controller
 {
     public function getList()
     {
-        $sach = Sach::all();
-        return view('admin.list_books',compact('sach'));
+        $listsach = Sach::all();
+        return view('admin.list_books',compact('listsach'));
     }
     public function getAdd()
     {
@@ -51,9 +51,9 @@ class SachController extends Controller
 
     public function getEdit($id)
     {
-        $sach = Sach::find($id);
+        $suasach = Sach::find($id);
         $loaisach = LoaiSach::all();
-        return view('admin.edit_book',compact('sach','loaisach'));
+        return view('admin.edit_book',compact('suasach','loaisach'));
     }
 
     public function postEdit(Request $request, $id)

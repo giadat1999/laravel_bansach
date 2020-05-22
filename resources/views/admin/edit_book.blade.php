@@ -1,9 +1,9 @@
 @extends('admin.master')
 @section('header')
-    {{$sach->name}}
+    {{$suasach->name}}
 @endsection
 @section('breadcrumb')
-    <li class="breadcrumb-item active"><a href="admin/sach/edit/{{$sach->id}}">Chỉnh sửa</a></li>
+    <li class="breadcrumb-item active"><a href="admin/sach/edit/{{$suasach->id}}">Chỉnh sửa</a></li>
 @endsection
 @section('main-content')
     <div class="row">
@@ -19,25 +19,25 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
-                <form role="form" method="post" enctype="multipart/form-data" action="admin/sach/edit/{{$sach->id}}">
+                <form role="form" method="post" enctype="multipart/form-data" action="admin/sach/edit/{{$suasach->id}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="product-name">Tên sách</label>
-                            <input type="text" class="form-control" id="product-name" name="tensach" placeholder="Nhập tên sách" value="{{$sach->name}}">
+                            <input type="text" class="form-control" id="product-name" name="tensach" placeholder="Nhập tên sách" value="{{$suasach->name}}">
                         </div>
                         <div class="form-group">
                             <label>Loại sách</label>
                             <select class="form-control" id="product-type" name="loai">
                                 @foreach($loaisach as $loai)                         
-                                    <option value="{{$loai->id}}" @if($loai->id == $sach->id_type) {{'selected'}} @endif>{{$loai->name}}</option>
+                                    <option value="{{$loai->id}}" @if($loai->id == $suasach->id_type) {{'selected'}} @endif>{{$loai->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mô tả</label>
                             <textarea class="form-control" id="product-desc" name="mota" rows="3" placeholder="Nhập mô tả">
-                                {{$sach->description}}
+                                {{$suasach->description}}
                             </textarea>
                         </div>
                         <div class="form-group">
@@ -46,7 +46,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">VNĐ</span>
                                 </div>
-                                <input type="number" class="form-control" id="unit-price" name="gia" value="{{$sach->unit_price}}">
+                                <input type="number" class="form-control" id="unit-price" name="gia" value="{{$suasach->unit_price}}">
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
                                 </div>
@@ -58,7 +58,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">VNĐ</span>
                                 </div>
-                                <input type="number" class="form-control" id="promotion-price" name="km" value="{{$sach->promotion_price}}">
+                                <input type="number" class="form-control" id="promotion-price" name="km" value="{{$suasach->promotion_price}}">
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
                                 </div>
@@ -66,12 +66,12 @@
                         </div>
                         <div class="form-group">
                             <label for="product-unit">Đơn vị</label>
-                            <input type="text" class="form-control" id="product-unit" name="donvi" placeholder="Đơn vị tính" value="{{$sach->unit}}">
+                            <input type="text" class="form-control" id="product-unit" name="donvi" placeholder="Đơn vị tính" value="{{$suasach->unit}}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Hình ảnh</label>
                             <div class="input-group">
-                                <img id="blah" src="upload/sach/{{$sach->image}}" alt="your image"/ width="500px">
+                                <img id="blah" src="upload/sach/{{$suasach->image}}" alt="your image"/ width="500px">
                             </div><br>
                             <div class="input-group">
                                 <input type="file" name="hinh" required="true" onchange="readURL(this);">
@@ -79,10 +79,10 @@
                         </div>
                         <label for="">Sản phẩm mới :</label>
                         <div class="form-check form-check-inline p-2">
-                            <input type="checkbox" class="form-check-input" id="new-product" name="spmoi" value="1" @if($sach->spmoi == '1') {{'checked'}} @endif> Có  
+                            <input type="checkbox" class="form-check-input" id="new-product" name="spmoi" value="1" @if($suasach->spmoi == '1') {{'checked'}} @endif> Có  
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" id="new-product" name="spmoi" value="0" @if($sach->spmoi == '0') {{'checked'}} @endif> Không  
+                            <input type="checkbox" class="form-check-input" id="new-product" name="spmoi" value="0" @if($suasach->spmoi == '0') {{'checked'}} @endif> Không  
                         </div>
                         
                     </div>

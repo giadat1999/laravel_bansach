@@ -40,7 +40,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($sach as $sach)
+                @foreach($listsach as $sach)
                 <tr>
                <td>{{$sach->name}} <img width="150px" src="upload/sach/{{$sach->image}}" alt=""></td>
                <td>{{$sach->loaisach->name}}</td>
